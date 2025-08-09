@@ -172,3 +172,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Macos
+.DS_Store
+
+# HTML & CSS
+*.html
+*.css
