@@ -1,43 +1,43 @@
 # Using EDA for Stock Performance Analysis
 
 ## Workflow Steps
-1. Data Acquisition
+Data Acquisition: 
+
 The analytical pipeline begins with the retrieval of historical market data using the yfinance library.
 
-Asset Selection: The script targets specific banking tickers, including Banco do Brasil (BDORY), Banco Bradesco (BBD), Itau Unibanco (ITUB), and Banco Santander (SAN).
+Asset Selection:
+The script targets specific banking tickers, including Banco do Brasil (BDORY), Banco Bradesco (BBD), Itaú Unibanco (ITUB), and Banco Santander (SAN).
 
-Timeframe: A rolling one-year lookback period is established relative to the execution date.
+Timeframe: 
+A rolling one-year lookback period is established relative to the execution date.
 
-Data Normalization: Raw multi-index data is "stacked" and reset to produce a standardized DataFrame containing timestamps, tickers, and adjusted closing prices.
+Data Normalization: 
+Raw multi-index data is "stacked" and reset to produce a standardized DataFrame containing timestamps, tickers, and adjusted closing prices.
 
 ## Exploratory Data Analysis (EDA)
 Visual and statistical methods are employed to assess asset behavior:
 
-Time-Series Visualization: Utilizing matplotlib and seaborn, the script generates line plots of Adjusted Close Prices to identify trends and volatility across the selected stocks.
+Time-Series Visualization: 
+Utilizing matplotlib and seaborn, the script generates line plots of Adjusted Close Prices to identify trends and volatility across the selected stocks.
 
-Data Preparation: Timestamps are converted to datetime objects to ensure accurate indexing for the subsequent financial calculations.
+Data Preparation:
+Timestamps are converted to datetime objects to ensure accurate indexing for the subsequent financial calculations.
 
 ## Return and Risk Modeling
-The analysis transitions from absolute prices to relative performance metrics:
+The analysis transitions from absolute prices to relative performance metrics
 
-Daily Returns: The script calculates the percentage change between consecutive trading days to determine asset returns.
+Daily Returns:
+The script calculates the percentage change between consecutive trading days to determine asset returns.
 
-Covariance Assessment: A covariance matrix is computed to evaluate the co-movement of assets, a critical component for measuring systemic portfolio risk.
+Covariance Assessment:
+A covariance matrix is computed to evaluate the co-movement of assets, a critical component for measuring systemic portfolio risk.
 
-4. Mean-Variance Optimization
-Applying the core tenets of Modern Portfolio Theory (MPT), the script seeks the optimal capital distribution:
+Mean-Variance Optimization
+Applying the core tenets of Modern Portfolio Theory (MPT),
+the script seeks the optimal capital distribution:
 
-Expected Annual Metrics: The model calculates expected annual returns and annual volatility (Standard Deviation).
+Expected Annual Metrics:
+The model calculates expected annual returns and annual volatility (or Standard Deviation).
 
-Weight Allocation: Through mathematical optimization, the script derives the specific percentage of capital (Weights) that should be allocated to each ticker to maximize efficiency.
-
-Usage
-To utilize this notebook for portfolio analysis, follow these procedural steps:
-
-Environment Setup: Open the MPT_Analysis.ipynb file in Google Colab or a local Jupyter environment.
-
-Library Installation: Ensure that pandas, numpy, yfinance, matplotlib, and seaborn are installed in your Python environment.
-
-Connectivity: Maintain an active internet connection to allow the yfinance API to fetch real-time and historical data.
-
-Execution: Run the code cells sequentially to process the data, generate the performance visualizations, and view the final Optimized Portfolio Weights.
+Weight Allocation:
+Through mathematical optimization, the script derives the specific percentage of capital (Weights) that should be allocated to each ticker to maximize efficiency.
