@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Using EDA for Stock Performance Analysis
 
 A year ago I became increasingly interested in how the stock market worked, but I was still unsufficently skilled with Data Analysis to translate my analytical knowledge into this complex topic.
@@ -41,6 +42,8 @@ Here the modeling projects the expected annual returns and annual volatility fig
 Weight Allocation:
 Through mathematical optimization, the script derives the specific percentage of capital (Weights) that should be allocated to each ticker to maximize efficiency.
 =======
+=======
+>>>>>>> Stashed changes
 # mpt-stock-market-analysis
 
 Workflow Steps
@@ -83,5 +86,9 @@ Library Installation: Ensure that pandas, numpy, yfinance, matplotlib, and seabo
 
 Connectivity: Maintain an active internet connection to allow the yfinance API to fetch real-time and historical data.
 
+<<<<<<< Updated upstream
+Execution: Run the code cells sequentially to process the data, generate the performance visualizations, and view the final Optimized Portfolio Weights.
+>>>>>>> Stashed changes
+=======
 Execution: Run the code cells sequentially to process the data, generate the performance visualizations, and view the final Optimized Portfolio Weights.
 >>>>>>> Stashed changes
