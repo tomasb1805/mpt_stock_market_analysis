@@ -1,4 +1,4 @@
-# mpt-stock-market-analysis
+# Using EDA for Stock Performance Analysis
 
 ## Workflow Steps
 1. Data Acquisition
