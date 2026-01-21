@@ -1,4 +1,4 @@
-# Using EDA for Stock Performance Analysis
+****# Using EDA for Stock Performance Analysis
 
 A year ago I became increasingly interested in how the stock market worked, but I was still unsufficently skilled with Data Analysis tools to achieve a satisfactory results for a topic this complex.
 Today, I want to deepen my understanding of 4 stocks I have been observing for a while, using an exploratory approach also known as Exploratory Data Analysis, or EDA for short. 
@@ -55,16 +55,28 @@ This analysis transitions from absolute pricing to relative performance metrics,
 - Daily Returns:
 Calculation of percentage variance between consecutive trading sessions to establish periodic asset performance.
 
+<img width="1384" height="684" alt="d-returns-kde" src="https://github.com/user-attachments/assets/65283e5e-af38-4779-83ce-29fbe7e6c45a" />
+
+
 - Covariance Assessment:
 Computation of a covariance matrix to quantify asset co-movement and aggregate systemic risk.
+
+<img width="1102" height="984" alt="corr-matrix" src="https://github.com/user-attachments/assets/d69f6de5-8af2-47a1-a4f5-1ab9d4f20031" />
 
 - Mean-Variance Optimization: 
 Algorithmic determination of optimal fund allocation to maximize efficiency per unit of risk.
 
+<img width="827" height="633" alt="efficient-frontier-mpt" src="https://github.com/user-attachments/assets/8a467ca8-7ac7-4e79-a94e-a9fe17378e53" />
+
 - Annualized Metrics:
 Projection of expected annual returns and volatility (standard deviation).
 
+<img width="489" height="86" alt="image" src="https://github.com/user-attachments/assets/54c129a7-a93f-473e-8326-386edf50348e" />
+
 - Weight Allocation:
 Mathematical derivation of capital distribution across tickers to achieve an optimized portfolio structure.
+
+<img width="236" height="204" alt="image" src="https://github.com/user-attachments/assets/7f795f39-1210-41f3-825f-9250c9a77e98" />
+
 
 ## Conclusions:
