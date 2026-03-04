@@ -46,35 +46,34 @@ The analysis indicates that a portfolio optimized for risk-adjusted returns heav
 ### Insight 3: Covariance and Sectoral Correlation
 <img width="684" height="584" alt="corr-matrix" src="https://github.com/user-attachments/assets/b9e7d0d9-df92-400d-973d-3695ed9c59e3" />
 
-* Systemic Correlation Density. A robust positive correlation of 0.73 exists between Banco Bradesco (BBD) and Itaú Unibanco (ITUB), indicating high * susceptibility to identical systemic shocks within the Brazilian retail banking sector.
-* Diversification Potential of SAN. Banco Santander (SAN) exhibits the lowest correlation coefficients across the cohort, particularly with BDORY
-* (0.35), suggesting its inclusion reduces aggregate portfolio variance.
-* Inter-Asset Neutrality. The correlation between SAN and BBD (0.40) remains moderate, facilitating a more efficient risk-frontier compared to a portfolio concentrated solely in BBD and ITUB.
-* BDORY Independence. Banco do Brasil (BDORY) maintains relatively low co-movement with both SAN (0.35) and BBD (0.44), functioning as a secondary diversifier for the optimized portfolio.
+* **Systemic Correlation Density**: A robust positive correlation of 0.73 exists between Banco Bradesco (BBD) and Itaú Unibanco (ITUB), indicating high susceptibility to identical systemic shocks within the Brazilian retail banking sector.
+* **Diversification Potential of SAN**: Banco Santander (SAN) exhibits the lowest correlation coefficients across the cohort, particularly with BDORY (0.35), suggesting its inclusion reduces aggregate portfolio variance.
+* **Inter-Asset Neutrality**: The correlation between SAN and BBD (0.40) remains moderate, facilitating a more efficient risk-frontier compared to a portfolio concentrated solely in BBD and ITUB.
+* **BDORY Independence**:  Banco do Brasil (BDORY) maintains relatively low co-movement with both SAN (0.35) and BBD (0.44), functioning as a secondary diversifier for the optimized portfolio.
 
 ### Insight 4: Statistical Distribution of Daily Returns
 <img width="784" height="384" alt="d-returns-kde" src="https://github.com/user-attachments/assets/7b7187d8-ed1d-4929-8733-a2837e746713" />
 
-* Leptokurtic Tendencies in BBD. The daily return distribution for BBD (green) demonstrates high kurtosis with a sharp central peak near 0.00, indicating a high frequency of small price movements punctuated by extreme outliers.
-
-* Return Dispersion in ITUB and BDORY. ITUB and BDORY exhibit broader Kernel Density Estimation (KDE) curves, signifying higher variance and a wider range of daily performance outcomes compared to BBD.
-
-* Outlier Analysis and Fat Tails. Both BBD and BDORY display significant "fat tails," with BBD recording positive extreme returns exceeding 0.15 and BDORY recording negative outliers below -0.10.
-
-* Volatility Clustering. The overlapping distributions of SAN and ITUB suggest similar volatility regimes, though SAN’s distribution is slightly more centered, aligning with its role as a primary stabilizer in the optimized weights.
+* **Leptokurtic Tendencies in BBD**:The daily return distribution for BBD (green) demonstrates high kurtosis with a sharp central peak near 0.00, indicating a high frequency of small price movements punctuated by extreme outliers.
+* **Return Dispersion in ITUB and BDORY**: ITUB and BDORY exhibit broader Kernel Density Estimation (KDE) curves, signifying higher variance and a wider range of daily performance outcomes compared to BBD.
+* **Outlier Analysis and Fat Tails**: Both BBD and BDORY display significant "fat tails," with BBD recording positive extreme returns exceeding 0.15 and BDORY recording negative outliers below -0.10.
+* **Volatility Clustering**: The overlapping distributions of SAN and ITUB suggest similar volatility regimes, though SAN’s distribution is slightly more centered, aligning with its role as a primary stabilizer in the optimized weights.
 
 ### Insight 5: Mean-Variance Optimization
 The portfolio optimization utilized the **Sharpe Ratio** to identify the tangency portfolio on the Efficient Frontier.
 
 <img width="627" height="433" alt="efficient-frontier-mpt" src="https://github.com/user-attachments/assets/69bd3929-2550-4d02-9aed-d9aee17e0a02" />
+<img width="489" height="86" alt="image" src="https://github.com/user-attachments/assets/54c129a7-a93f-473e-8326-386edf50348e" />
 
 
-# Recommendations:
+# Conclusions:
 Based on the derived optimal weights and performance metrics, the following allocations are recommended:
 
-* Allocate **80.3%** of capital to **SAN** and **19.7%** to **BDORY**. **This configuration maximizes the expected return per unit of risk based on historical variance.**
-* Maintain a **0%** allocation for **BBD** and **ITUB**. **These assets currently contribute insufficient marginal returns relative to their volatility within the cohort.**
-* Monitor UK and Brazilian regulatory updates closely. **The sensitivity of SAN to Ring Fencing policies suggests that macroeconomic shifts are primary drivers of idiosyncratic risk.**
+<img width="236" height="204" alt="image" src="https://github.com/user-attachments/assets/7f795f39-1210-41f3-825f-9250c9a77e98" />
+
+* Allocate **32.1%** of capital to **SAN** and **19.7%** to **BDORY**, **43.4%** allocated to **BBD** and finally **7.2%** to **ITUB**
+* **This configuration maximizes the expected return per unit of risk based on historical variance.**
+
 
 # Assumptions and Caveats:
 * **Stationarity**: The model assumes that historical returns and covariance structures will persist in the future.
