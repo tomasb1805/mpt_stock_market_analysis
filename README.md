@@ -1,82 +1,82 @@
-****# Using EDA for Stock Performance Analysis
+# Project Background
+This analysis serves as a quantitative evaluation of the risk-adjusted performance of four major banking equities: **Banco do Brasil (BDORY)**, **Banco Bradesco (BBD)**, **Itaú Unibanco (ITUB)**, and **Banco Santander (SAN)**. Operating within the Brazilian and global financial sectors, these institutions' market behaviors were scrutinized from the perspective of a data analyst to optimize a representative portfolio. 
 
-A year ago I became increasingly interested in how the stock market worked, but I was still unsufficently skilled with Data Analysis tools to achieve a satisfactory results for a topic this complex.
-Today, I want to deepen my understanding of 4 stocks I have been observing for a while, using an exploratory approach also known as Exploratory Data Analysis, or EDA for short. 
+Insights and recommendations are provided on the following key areas:
 
-Before the
+- **Momentum and Divergence**: Comparative analysis of price trajectories and sector decoupling.
+- **Volatility Catalysts**: Identification of macroeconomic and regulatory events affecting asset stability.
+- **Risk Modeling**: Implementation of Modern Portfolio Theory (MPT) to evaluate efficiency.
+- **Capital Allocation**: Mathematical derivation of optimal weights via Sharpe Ratio maximization.
 
-Beneath you can find the project structure and setup, that are not to be considered financial advice in any form or way, and to be understood only as demonstrative and/or illustrative endeavours.
+The Python implementation utilizing `yfinance`, `pandas`, and `numpy` for this analysis is available in the repository.
 
-## The Setup:
-#### Data Acquisition: 
+# Data Structure & Initial Checks
+The primary dataset consists of historical adjusted closing prices and trading volumes retrieved via the `yfinance` library. The data was processed into a multi-index DataFrame, subsequently "stacked" and reset to produce a standardized format for time-series analysis.
 
-The analytical pipeline begins with the retrieval of historical market data using the yfinance library. The asset selection consist in 4 banking tickers:  Banco do Brasil (BDORY), Banco Bradesco (BBD), Itaú Unibanco (ITUB), and Banco Santander (SAN).
-
-#### Establishing a Timeframe: 
-
-A rolling one-year lookback period is established from the date the audience will interact with the script and the data then normalized into a raw multi-index data that is "stacked", then the index gets reset to produce a standardized DataFrame containing timestamps, tickers, and adjusted closing prices.
-
-#### Data Preparation and Time-Series visualization: 
-Since this is a time-series, to visualize the data utilizing Matplotlib and Seaborn we need to convert the Timestamps to a datetime object to ensure accurate indexing for the subsequent financial calculations, and then generate the line plots of Adjusted Close Prices with a script that makes identifing trends and the volatility across the selected securities easier to achieve.
-
-## The Analysis 
-Now for the actual exploration phase:
-More often than not, plotting the data will generate more insights thanks to the ability of the human brain to better percieve changes visually.
-
-#### Plotting the Adjusted Close prices over time
-
-The first step is to understand the performance of the stocks for the year taken into consideration, by plotting the adjusted close price for each security as time passes, this will get us familiar with the raw output of each:
-
-<img width="608" height="570" alt="Adjusted Close Price for each Security" src="https://github.com/user-attachments/assets/a3df2989-8789-43fd-b64f-7056c1c56d46" />
-
-Some first conclusion can be extracted from this basic line chart. As a overall trend, Santander tends to massively outperform all the other tickers,
-Itaú and Banco Central do Brasil initially had similiar performance before starting to diverge in April 2025, and finally Banco Bradesco closes the cohort as the least performing stock, but gradually gaining track over time and achieving a similar performance to BDORY by the end of 2025.
-
-This can be a first step to dive deeper into the exploration: Why the two similar stocks diverged? It was an external event or the two companies perfomances caused this change? Why Banco Bradesco is struggling when compared to the others?
-
-Since this is a portofolio project to showcase my skills in Data Analysis, such as implementing Python code and using other tools of the trade, I will bring the investigation to a different direction but it's easy to understand how a simple but trusted tool like a Line chart can  generate many insights and lead to very different paths depending on the goal of the analysist.
-
-#### Plotting Rolling Averages
+- **Temporal Coverage**: A rolling one-year lookback period through late 2025.
+- **Attributes**: Timestamps, Tickers, and Adjusted Closing Prices.
+- **Integrity**: Data was normalized to ensure accurate indexing for financial calculations.
 
 
-For the next steps we will assess the asset behavior considering the moving averages in a 50 and 200 days period, which in finance i also known with the name "MACD" or "Moving Average Convergence/Divergence" and is used to understand the performance of a stock on a wider timescale. For demostration purposes only the Santander MACD and Trading Volumes will be shown, but in the code the output produces averages and volumes for all four stocks 
 
-<img width="608" height="570" alt="Santander MACD" src="https://github.com/user-attachments/assets/293a82cb-41c9-4b88-bddd-ed3ebdfce536" />
-
-<img width="608" height="570" alt="Santander Trading Volumes" src="https://github.com/user-attachments/assets/bc6ebeaa-3435-460e-ab8a-d61183816480" />
-
-It's easy to notice that this stock had a moment of weakness at the end of April 2025, this can be established due to several factors including an ex-dividend date, unsatisfactory Q1 performance according to some analysts and investors and on a macro scale consideration some concerns around changes in the UK Ring Fencing policies (regulatory laws on the separation of capital for retail and investing purposes established after the 2008 crisis aftermath). These changes could have severly impacted the performance of non-UK banks operating on British soil.
-
-Despite these issues, the company continued to delivere and was consistent in its business strategy and goals, which earned back the trust of investor and maintained the overall very positive performance until the end of 2025.
-
-## Return and Risk Modeling
-This analysis transitions from absolute pricing to relative performance metrics, utilizing Modern Portfolio Theory (MPT) framework to evaluate risk-adjusted returns via the Sharpe Ratio.
-
-- Daily Returns:
-Calculation of percentage variance between consecutive trading sessions to establish periodic asset performance.
-
-<img width="1384" height="684" alt="d-returns-kde" src="https://github.com/user-attachments/assets/65283e5e-af38-4779-83ce-29fbe7e6c45a" />
+# Executive Summary
+### Overview of Findings
+The analysis indicates that a portfolio optimized for risk-adjusted returns heavily favors **Santander (SAN)** and **Banco do Brasil (BDORY)**. The optimization process identified that SAN significantly outperformed the cohort, despite a temporary volatility event in April 2025 linked to UK regulatory shifts. The resulting optimized portfolio yields an **Expected Annual Return of 28.5%** with an **Annualized Volatility of 24.3%**.
 
 
-- Covariance Assessment:
-Computation of a covariance matrix to quantify asset co-movement and aggregate systemic risk.
+# Insights Deep Dive
+### Insight 1: Price Momentum & Cohort Divergence
+<img width="784" height="384" alt="adj-close" src="https://github.com/user-attachments/assets/176ef2a5-3449-44dd-966f-28b29d31bed2" />
+<img width="784" height="384" alt="volume-san" src="https://github.com/user-attachments/assets/74a88482-ab7f-4433-a274-40e8bad23589" />
 
-<img width="1102" height="984" alt="corr-matrix" src="https://github.com/user-attachments/assets/d69f6de5-8af2-47a1-a4f5-1ab9d4f20031" />
-
-- Mean-Variance Optimization: 
-Algorithmic determination of optimal fund allocation to maximize efficiency per unit of risk.
-
-<img width="827" height="633" alt="efficient-frontier-mpt" src="https://github.com/user-attachments/assets/8a467ca8-7ac7-4e79-a94e-a9fe17378e53" />
-
-- Annualized Metrics:
-Projection of expected annual returns and volatility (standard deviation).
-
-<img width="489" height="86" alt="image" src="https://github.com/user-attachments/assets/54c129a7-a93f-473e-8326-386edf50348e" />
-
-- Weight Allocation:
-Mathematical derivation of capital distribution across tickers to achieve an optimized portfolio structure.
-
-<img width="236" height="204" alt="image" src="https://github.com/user-attachments/assets/7f795f39-1210-41f3-825f-9250c9a77e98" />
+* **Santander Dominance**: SAN demonstrated consistent outperformance relative to the other three tickers throughout the observed timeframe.
+* **April Divergence**: ITUB and BDORY initially shared similar performance characteristics before diverging significantly in April 2025.
+* **Lagging Recovery**: BBD functioned as the least performing stock for the majority of the period but showed convergence with BDORY by the end of 2025.
+  
 
 
-## Conclusions:
+### Insight 2: Volatility and Technical Indicators
+<img width="784" height="384" alt="macd-san" src="https://github.com/user-attachments/assets/9fb0ec2a-c4a5-4bef-b582-b944791849ee" />
+
+* **Moving Average Support**: MACD analysis (50 and 200-day rolling averages) identified a localized period of weakness for SAN in late April 2025.
+* **External Catalysts**: The April volatility coincided with ex-dividend dates and market concerns regarding changes in UK Ring Fencing policies.
+* **Liquidity Validation**: Trading volumes confirmed institutional resilience, as the stock maintained its positive trajectory following the Q1 performance assessment.
+
+
+### Insight 3: Covariance and Sectoral Correlation
+<img width="684" height="584" alt="corr-matrix" src="https://github.com/user-attachments/assets/b9e7d0d9-df92-400d-973d-3695ed9c59e3" />
+
+* Systemic Correlation Density. A robust positive correlation of 0.73 exists between Banco Bradesco (BBD) and Itaú Unibanco (ITUB), indicating high * susceptibility to identical systemic shocks within the Brazilian retail banking sector.
+* Diversification Potential of SAN. Banco Santander (SAN) exhibits the lowest correlation coefficients across the cohort, particularly with BDORY
+* (0.35), suggesting its inclusion reduces aggregate portfolio variance.
+* Inter-Asset Neutrality. The correlation between SAN and BBD (0.40) remains moderate, facilitating a more efficient risk-frontier compared to a portfolio concentrated solely in BBD and ITUB.
+* BDORY Independence. Banco do Brasil (BDORY) maintains relatively low co-movement with both SAN (0.35) and BBD (0.44), functioning as a secondary diversifier for the optimized portfolio.
+
+### Insight 4: Statistical Distribution of Daily Returns
+<img width="784" height="384" alt="d-returns-kde" src="https://github.com/user-attachments/assets/7b7187d8-ed1d-4929-8733-a2837e746713" />
+
+* Leptokurtic Tendencies in BBD. The daily return distribution for BBD (green) demonstrates high kurtosis with a sharp central peak near 0.00, indicating a high frequency of small price movements punctuated by extreme outliers.
+
+* Return Dispersion in ITUB and BDORY. ITUB and BDORY exhibit broader Kernel Density Estimation (KDE) curves, signifying higher variance and a wider range of daily performance outcomes compared to BBD.
+
+* Outlier Analysis and Fat Tails. Both BBD and BDORY display significant "fat tails," with BBD recording positive extreme returns exceeding 0.15 and BDORY recording negative outliers below -0.10.
+
+* Volatility Clustering. The overlapping distributions of SAN and ITUB suggest similar volatility regimes, though SAN’s distribution is slightly more centered, aligning with its role as a primary stabilizer in the optimized weights.
+
+### Insight 5: Mean-Variance Optimization
+The portfolio optimization utilized the **Sharpe Ratio** to identify the tangency portfolio on the Efficient Frontier.
+
+<img width="627" height="433" alt="efficient-frontier-mpt" src="https://github.com/user-attachments/assets/69bd3929-2550-4d02-9aed-d9aee17e0a02" />
+
+
+# Recommendations:
+Based on the derived optimal weights and performance metrics, the following allocations are recommended:
+
+* Allocate **80.3%** of capital to **SAN** and **19.7%** to **BDORY**. **This configuration maximizes the expected return per unit of risk based on historical variance.**
+* Maintain a **0%** allocation for **BBD** and **ITUB**. **These assets currently contribute insufficient marginal returns relative to their volatility within the cohort.**
+* Monitor UK and Brazilian regulatory updates closely. **The sensitivity of SAN to Ring Fencing policies suggests that macroeconomic shifts are primary drivers of idiosyncratic risk.**
+
+# Assumptions and Caveats:
+* **Stationarity**: The model assumes that historical returns and covariance structures will persist in the future.
+* **Normality**: The use of standard deviation as a risk proxy assumes that asset returns follow a normal distribution, ignoring potential "black swan" events.
+* **Lookback Period**: The optimization is strictly based on a one-year rolling window; varying the timeframe may yield different optimal weights.
