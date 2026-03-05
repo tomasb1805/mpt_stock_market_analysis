@@ -1,94 +1,81 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# Using EDA for Stock Performance Analysis
+# Project Background
+This analysis serves as a quantitative evaluation of the risk-adjusted performance of four major banking equities: **Banco do Brasil (BDORY)**, **Banco Bradesco (BBD)**, **Itaú Unibanco (ITUB)**, and **Banco Santander (SAN)**. Operating within the Brazilian and global financial sectors, these institutions' market behaviors were scrutinized from the perspective of a data analyst to optimize a representative portfolio. 
 
-A year ago I became increasingly interested in how the stock market worked, but I was still unsufficently skilled with Data Analysis to translate my analytical knowledge into this complex topic.
-Today, I want to deepen my understanding of 4 stocks I have been watching for a while using an exploratory approach, also known as Exploratory Data Analysis, or EDA. 
-Beneath the project structure, setup and steps are described. 
+Insights and recommendations are provided on the following key areas:
 
-## Workflow Steps
-Data Acquisition: 
+- **Momentum and Divergence**: Comparative analysis of price trajectories and sector decoupling.
+- **Volatility Catalysts**: Identification of macroeconomic and regulatory events affecting asset stability.
+- **Risk Modeling**: Implementation of Modern Portfolio Theory (MPT) to evaluate efficiency.
+- **Capital Allocation**: Mathematical derivation of optimal weights via Sharpe Ratio maximization.
 
-The analytical pipeline begins with the retrieval of historical market data using the yfinance library. The asset selection consist in 4 banking tickers:  Banco do Brasil (BDORY), Banco Bradesco (BBD), Itaú Unibanco (ITUB), and Banco Santander (SAN).
+The Python implementation utilizing `yfinance`, `pandas`, and `numpy` for this analysis is available in the repository.
 
-Timeframe: 
-A rolling one-year lookback period is established from the date the audience will interact with the script and the data then normalized into a raw multi-index data that is "stacked", then the index gets reset to produce a standardized DataFrame containing timestamps, tickers, and adjusted closing prices.
+# Data Structure & Initial Checks
+The primary dataset consists of historical adjusted closing prices and trading volumes retrieved via the `yfinance` library. The data was processed into a multi-index DataFrame, subsequently "stacked" and reset to produce a standardized format for time-series analysis.
 
-## Exploratory Data Analysis (EDA)
-Now for the actual exploration phase:
-More often than not, plotting the data will generate more insights thanks to the ability of the human brain to better percieve changes visually.
-This part will assess the asset behavior considering moving averages in 50 and 200 days period, which in finance is known with the name MACD or Moving Average Convergence/Divergence and is used to understand the performance of a stock on a wider timescale
-
-Data Preparation and Time-Series visualization: 
-Since this is a time-series, to visualize the data utilizing Matplotlib and Seaborn we need to convert the Timestamps to a datetime object to ensure accurate indexing for the subsequent financial calculations, and then  generates the line plots of Adjusted Close Prices with a script  that makes identifing trends and the volatility across the selected securities.
+- **Temporal Coverage**: A rolling one-year lookback period through late 2025.
+- **Attributes**: Timestamps, Tickers, and Adjusted Closing Prices.
+- **Integrity**: Data was normalized to ensure accurate indexing for financial calculations.
 
 
-## Return and Risk Modeling
-The following analysis transitions from absolute prices to relative performance metrics, including Daily Returns, Covariance, Mean-Covariance, and then proceeds to calculate the Sharpe Ratio (also know as Risk-Adjusted Return) to model the return when taking into consideration risk exposure.
 
-Daily Returns:
-The analysis here calculates the percentage change between consecutive trading days, and therefore determines the asset returns over the established period of time.
+# Executive Summary
+### Overview of Findings
+The analysis indicates that a portfolio optimized for risk-adjusted returns heavily favors **Santander (SAN)** and **Banco do Brasil (BDORY)**. The optimization process identified that SAN significantly outperformed the cohort, despite a temporary volatility event in April 2025 linked to UK regulatory shifts. The resulting optimized portfolio yields an **Expected Annual Return of 28.5%** with an **Annualized Volatility of 24.3%**.
 
-Covariance Assessment:
-A covariance matrix is computed to evaluate the co-movement of assets, and therefore is a critical component for measuring the systemic risk linked to the portfolio.
 
-Mean-Variance Optimization
-This is a standard application of Modern Portfolio Theory (MPT),
-to optimize the fund allocation for each stock.
+# Insights Deep Dive
+### Insight 1: Price Momentum & Cohort Divergence
+<img width="784" height="384" alt="adj-close" src="https://github.com/user-attachments/assets/176ef2a5-3449-44dd-966f-28b29d31bed2" />
+<img width="784" height="384" alt="volume-san" src="https://github.com/user-attachments/assets/74a88482-ab7f-4433-a274-40e8bad23589" />
 
-Expected Annual Metrics:
-Here the modeling projects the expected annual returns and annual volatility figures (or Standard Deviation).
+* **Santander Dominance**: SAN demonstrated consistent outperformance relative to the other three tickers throughout the observed timeframe.
+* **April Divergence**: ITUB and BDORY initially shared similar performance characteristics before diverging significantly in April 2025.
+* **Lagging Recovery**: BBD functioned as the least performing stock for the majority of the period but showed convergence with BDORY by the end of 2025.
+  
 
-Weight Allocation:
-Through mathematical optimization, the script derives the specific percentage of capital (Weights) that should be allocated to each ticker to maximize efficiency.
-=======
-=======
->>>>>>> Stashed changes
-# mpt-stock-market-analysis
 
-Workflow Steps
-1. Data Acquisition
-The analytical pipeline begins with the retrieval of historical market data using the yfinance library.
+### Insight 2: Volatility and Technical Indicators
+<img width="784" height="384" alt="macd-san" src="https://github.com/user-attachments/assets/9fb0ec2a-c4a5-4bef-b582-b944791849ee" />
 
-Asset Selection: The script targets specific banking tickers, including Banco do Brasil (BDORY), Banco Bradesco (BBD), Itau Unibanco (ITUB), and Banco Santander (SAN).
+* **Moving Average Support**: MACD analysis (50 and 200-day rolling averages) identified a localized period of weakness for SAN in late April 2025.
+* **External Catalysts**: The April volatility coincided with ex-dividend dates and market concerns regarding changes in UK Ring Fencing policies.
+* **Liquidity Validation**: Trading volumes confirmed institutional resilience, as the stock maintained its positive trajectory following the Q1 performance assessment.
 
-Timeframe: A rolling one-year lookback period is established relative to the execution date.
 
-Data Normalization: Raw multi-index data is "stacked" and reset to produce a standardized DataFrame containing timestamps, tickers, and adjusted closing prices.
+### Insight 3: Covariance and Sectoral Correlation
+<img width="684" height="584" alt="corr-matrix" src="https://github.com/user-attachments/assets/b9e7d0d9-df92-400d-973d-3695ed9c59e3" />
 
-2. Exploratory Data Analysis (EDA)
-Visual and statistical methods are employed to assess asset behavior:
+* **Systemic Correlation Density**: A robust positive correlation of 0.73 exists between Banco Bradesco (BBD) and Itaú Unibanco (ITUB), indicating high susceptibility to identical systemic shocks within the Brazilian retail banking sector.
+* **Diversification Potential of SAN**: Banco Santander (SAN) exhibits the lowest correlation coefficients across the cohort, particularly with BDORY (0.35), suggesting its inclusion reduces aggregate portfolio variance.
+* **Inter-Asset Neutrality**: The correlation between SAN and BBD (0.40) remains moderate, facilitating a more efficient risk-frontier compared to a portfolio concentrated solely in BBD and ITUB.
+* **BDORY Independence**:  Banco do Brasil (BDORY) maintains relatively low co-movement with both SAN (0.35) and BBD (0.44), functioning as a secondary diversifier for the optimized portfolio.
 
-Time-Series Visualization: Utilizing matplotlib and seaborn, the script generates line plots of Adjusted Close Prices to identify trends and volatility across the selected stocks.
+### Insight 4: Statistical Distribution of Daily Returns
+<img width="784" height="384" alt="d-returns-kde" src="https://github.com/user-attachments/assets/7b7187d8-ed1d-4929-8733-a2837e746713" />
 
-Data Preparation: Timestamps are converted to datetime objects to ensure accurate indexing for the subsequent financial calculations.
+* **Leptokurtic Tendencies in BBD**:The daily return distribution for BBD (green) demonstrates high kurtosis with a sharp central peak near 0.00, indicating a high frequency of small price movements punctuated by extreme outliers.
+* **Return Dispersion in ITUB and BDORY**: ITUB and BDORY exhibit broader Kernel Density Estimation (KDE) curves, signifying higher variance and a wider range of daily performance outcomes compared to BBD.
+* **Outlier Analysis and Fat Tails**: Both BBD and BDORY display significant "fat tails," with BBD recording positive extreme returns exceeding 0.15 and BDORY recording negative outliers below -0.10.
+* **Volatility Clustering**: The overlapping distributions of SAN and ITUB suggest similar volatility regimes, though SAN’s distribution is slightly more centered, aligning with its role as a primary stabilizer in the optimized weights.
 
-3. Return and Risk Modeling
-The analysis transitions from absolute prices to relative performance metrics:
+### Insight 5: Mean-Variance Optimization
+The portfolio optimization utilized the **Sharpe Ratio** to identify the tangency portfolio on the Efficient Frontier.
 
-Daily Returns: The script calculates the percentage change between consecutive trading days to determine asset returns.
+<img width="627" height="433" alt="efficient-frontier-mpt" src="https://github.com/user-attachments/assets/69bd3929-2550-4d02-9aed-d9aee17e0a02" />
+<img width="489" height="86" alt="image" src="https://github.com/user-attachments/assets/54c129a7-a93f-473e-8326-386edf50348e" />
 
-Covariance Assessment: A covariance matrix is computed to evaluate the co-movement of assets, a critical component for measuring systemic portfolio risk.
 
-4. Mean-Variance Optimization
-Applying the core tenets of Modern Portfolio Theory (MPT), the script seeks the optimal capital distribution:
+# Conclusions:
+Based on the derived optimal weights and performance metrics, the following allocations are recommended:
 
-Expected Annual Metrics: The model calculates expected annual returns and annual volatility (Standard Deviation).
+<img width="236" height="204" alt="image" src="https://github.com/user-attachments/assets/7f795f39-1210-41f3-825f-9250c9a77e98" />
 
-Weight Allocation: Through mathematical optimization, the script derives the specific percentage of capital (Weights) that should be allocated to each ticker to maximize efficiency.
+* Allocate **32.1%** of capital to **SAN** and **19.7%** to **BDORY**, **43.4%** allocated to **BBD** and finally **7.2%** to **ITUB**
+* **This configuration maximizes the expected return per unit of risk based on historical variance.**
 
-Usage
-To utilize this notebook for portfolio analysis, follow these procedural steps:
 
-Environment Setup: Open the MPT_Analysis.ipynb file in Google Colab or a local Jupyter environment.
-
-Library Installation: Ensure that pandas, numpy, yfinance, matplotlib, and seaborn are installed in your Python environment.
-
-Connectivity: Maintain an active internet connection to allow the yfinance API to fetch real-time and historical data.
-
-<<<<<<< Updated upstream
-Execution: Run the code cells sequentially to process the data, generate the performance visualizations, and view the final Optimized Portfolio Weights.
->>>>>>> Stashed changes
-=======
-Execution: Run the code cells sequentially to process the data, generate the performance visualizations, and view the final Optimized Portfolio Weights.
->>>>>>> Stashed changes
+# Assumptions and Caveats:
+* **Stationarity**: The model assumes that historical returns and covariance structures will persist in the future.
+* **Normality**: The use of standard deviation as a risk proxy assumes that asset returns follow a normal distribution, ignoring potential "black swan" events.
+* **Lookback Period**: The optimization is strictly based on a one-year rolling window; varying the timeframe may yield different optimal weights.
