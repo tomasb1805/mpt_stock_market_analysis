@@ -71,11 +71,14 @@ Based on the derived optimal weights and performance metrics, the following allo
 
 <img width="236" height="204" alt="image" src="https://github.com/user-attachments/assets/7f795f39-1210-41f3-825f-9250c9a77e98" />
 
-* Allocate **32.1%** of capital to **SAN** and **19.7%** to **BDORY**, **43.4%** allocated to **BBD** and finally **7.2%** to **ITUB**
-* **This configuration maximizes the expected return per unit of risk based on historical variance.**
+* Allocating **32.1%** of capital to **SAN** and **19.7%** to **BDORY**, **43.4%** allocated to **BBD** and finally **7.2%** to **ITUB**
+* **This configuration maximizes the expected return per unit of risk based on historical variance.
+  (This is not to be intended as financial advice)**
+  
 
 
 # Assumptions and Caveats:
+* **Analysis Caveat**: This analysis is based on a short one-year data lookback only to represent the author skills in time-series analysis,
+  therefore its real-world usage is stricly limited and does not represent financial advice in any kind or form.
 * **Stationarity**: The model assumes that historical returns and covariance structures will persist in the future.
 * **Normality**: The use of standard deviation as a risk proxy assumes that asset returns follow a normal distribution, ignoring potential "black swan" events.
-* **Lookback Period**: The optimization is strictly based on a one-year rolling window; varying the timeframe may yield different optimal weights.
